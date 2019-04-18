@@ -1,0 +1,9 @@
+<!--mark.wxml-->
+<view class="containers">
+  <view class="userinfo">
+    <view wx:for='{{ showList }}' class='item-box' bindtap="onClickItem">
+      <image src='../../images/mark/icon_{{ item.id }}.png' alt='' class='icon-img' />
+      <text class='label-text'>{{ item.label }}</text>
+    </view>
+  </view>
+</view>
