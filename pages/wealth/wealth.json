@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "我的财富",
-  "usingComponents": {}
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog"
+  }
 }

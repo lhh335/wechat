@@ -4,7 +4,8 @@
     "pages/wealth/wealth",
     "pages/mine/mine",
     "pages/mine/userInfo/userInfo",
-    "pages/mark/productdetail/productdetail"
+    "pages/mark/productdetail/productdetail",
+    "components/dialog/dialog"
   ],
   "tabBar": {
     "position": "bottom",

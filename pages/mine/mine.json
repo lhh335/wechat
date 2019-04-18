@@ -2,5 +2,7 @@
   "navigationBarTitleText": "个人中心",
   "navigationBarBackgroundColor": "#197FC3",
   "navigationBarTextStyle": "white",
-  "usingComponents": {}
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog"
+  }
 }

@@ -8,4 +8,14 @@
       <image src="../../images/arrow_right_gray.png" class='arrow'></image>
     </block>
   </view>
+  <dialog
+    id="dialog_mine"
+    title="提示信息"
+    content="确定要跳转页面来查看个人信息？"
+    cancelText="取消"
+    confirmText="确定"
+    bind:cancelEvent="_cancleEvent"
+    bind:confirmEvent="_confirmEvent"
+  >
+  </dialog>
 </view>

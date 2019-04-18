@@ -1,7 +1,11 @@
 //mine.js
 //获取应用实例
-import { formatTime } from '../../utils/util.js';
-import { fetchData } from '../../service/service.js';
+import {
+  formatTime
+} from '../../utils/util.js';
+import {
+  fetchData
+} from '../../service/service.js';
 const app = getApp()
 
 Page({
@@ -10,18 +14,32 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  onReady: function() {
+    this.dialog_mine = this.selectComponent('#dialog_mine')
+  },
+
   //事件处理函数
-  bindViewTap: function () {
+  bindViewTap() {
     wx.switchTab({
       url: '/pages/wealth/wealth',
     })
   },
-  handleTapHearder: () => {
+  handleTapHearder() {
+    this.dialog_mine.toggleDialog();
+  },
+  _cancleEvent() {
+    console.log('取消');
+    this.dialog_mine.toggleDialog();
+  },
+  _confirmEvent() {
+    console.log('确定');
+    this.dialog_mine.toggleDialog();
     wx.navigateTo({
       url: './userInfo/userInfo',
     })
   },
-  onLoad: function () {
+
+  onLoad: function() {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -29,10 +47,10 @@ Page({
       })
       fetchData({
         url: 'https://app.harvestwm.cn/api/v1/app/productdetail?fundCode=003678',
-        success: function (res) {
+        success: function(res) {
           console.log('请求数据成功', res);
         },
-        fail: function (err) {
+        fail: function(err) {
           console.log('返回错误信息', err);
         }
       })
@@ -58,7 +76,7 @@ Page({
       })
     }
   },
-  getUserInfo: function (e) {
+  getUserInfo(e) {
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
