@@ -7,26 +7,7 @@ Component({
    * 用于组件自定义设置
    */
   properties: {
-    // 弹窗标题
-    title: { // 属性名
-      type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-      value: '标题' // 属性初始值（可选），如果未指定则会根据类型选择一个
-    },
-    // 弹窗内容
-    content: {
-      type: String,
-      value: '弹窗内容'
-    },
-    // 弹窗取消按钮文字
-    cancelText: {
-      type: String,
-      value: '取消'
-    },
-    // 弹窗确认按钮文字
-    confirmText: {
-      type: String,
-      value: '确定'
-    }
+   
   },
 
   /**
@@ -34,8 +15,7 @@ Component({
    * 可用于模版渲染
    */
   data: {
-    // 弹窗显示控制
-    isShow: false
+    showMap: false
   },
 
   /**
@@ -48,9 +28,9 @@ Component({
      */
 
     //显示、隐藏弹框
-    toggleDialog() {
+    toggleMaps() {
       this.setData({
-        isShow: !this.data.isShow
+        showMap: !this.data.showMap
       })
     },
     /*
@@ -62,13 +42,10 @@ Component({
       /**
        * 相当于父级props的回调:this.triggerEvent相当于thia.props。可以在父级的回调中做一些操作。
        */
-      console.log('点击取消');
       this.triggerEvent("cancelEvent")
       // this.hideDialog();
     },
     _confirmEvent() {
-      //触发成功回调
-      console.log('点击确定');
       this.triggerEvent("confirmEvent");
       // this.hideDialog();
     }

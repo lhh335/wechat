@@ -1,13 +1,10 @@
 <!--wealth.wxml-->
 <view class="container log-list">
-  <button bindtap='showDialog'>点击</button>
-  <dialog 
-    id='dialog' 
-    title='我是标题' 
-    content='恭喜你，学会了小程序组件' 
-    cancelText='知道了' 
-    confirm='谢谢你' 
-    bind:cancelEvent="_cancelEvent" 
-    bind:confirmEvent="_confirmEvent">
-  </dialog>
+  <button bindtap='bindTaps'>{{'点击' + showText +  '我的位置'}}</button>
+  <maps 
+    id="my_map"
+    bind:toggleMap='_toggleMap'
+    longitude="{{location.longitude}}"
+    latitude="{{location.latitude}}"
+  />
 </view>

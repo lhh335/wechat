@@ -5,7 +5,8 @@
     "pages/mine/mine",
     "pages/mine/userInfo/userInfo",
     "pages/mark/productdetail/productdetail",
-    "components/dialog/dialog"
+    "components/dialog/dialog",
+    "components/maps/maps"
   ],
   "tabBar": {
     "position": "bottom",

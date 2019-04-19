@@ -3,22 +3,40 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
-    //获得dialog组件
-    this.dialog = this.selectComponent("#dialog");
+  data:{
+    showText: '显示',
+    location: {
+      longitude: '',
+      latitude: ''
+    }
   },
-  showDialog() {
-    console.log('点击dialog1');
-    this.dialog.toggleDialog();
+  onReady: function() {
+    this.my_map = this.selectComponent("#my_map");
+    const self = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function(res) {
+        console.log(res, '坐标位置');
+        self.setData({
+          location: {
+            longitude: res.longitude,
+            latitude: res.latitude
+          }
+        })
+      },
+    })
+  },
+  bindTaps(){
+    this.showMap();
+    this._toggleMap();
+  },
+  showMap() {
+    this.my_map.toggleMaps();
   },
   //取消事件
-  _cancelEvent() {
-    console.log('你点击了取消');
-    this.dialog.toggleDialog();
-  },
-  //确认事件
-  _confirmEvent() {
-    console.log('你点击了确定');
-    this.dialog.toggleDialog();
+  _toggleMap(flag){
+    this.setData({
+      showText: this.data.showText === '显示'? '隐藏': '显示'
+    })
   }
 })
