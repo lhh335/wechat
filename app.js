@@ -10,7 +10,7 @@ App({
     // 登录
     wx.login({
       success: res => {
-        console.log('wx.login');
+        console.log('微信登录成功', res);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -36,6 +36,18 @@ App({
         }
       }
     })
+  },
+  onError: function (err) {
+    console.log('小程序出错', err);
+  },
+  onPageNotFound: function (e) {
+    console.log(e, '页面不存在');
+    wx.redirectTo({
+      url: '/pages/noPage/noPage',
+    })
+  },
+  onShow: function (e) {
+    console.log('onShow', e);
   },
   globalData: {
     userInfo: null

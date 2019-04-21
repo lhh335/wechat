@@ -40,22 +40,35 @@ Page({
       }
     ]
   },
-  onClickItem: function(){
+  onClickItem () {
     wx.navigateTo({
       url: './productdetail/productdetail',
     })
     return;
-    // fetchData({
-    //   url: '',
-    //   success: (res) => {
-
-    //   },
-    //   fail: () => {
-        
-    //   }
-    // })
   },
-  onLoad: function () {
-    
+  /**
+   * 只有定义了onShareAppMessage这个API，转发按钮和功能才有效
+   */
+  onShareAppMessage (res){
+    if (res.from === 'button') {
+      console.log('这是要转发了');
+    }
+    return {
+      title: '分享转发小程序',
+      path: '/pages/mark/mark'
+    };
+  },
+  onShow () {
+    //  Page.route ====== 当前页面的路由 
+    console.time();
+    console.log(this.route);
+    console.log(wx.env, '微信的环境变量');
+    console.timeEnd();
+  },
+  getCurrentPages (e) {
+    console.log('获取当前路由栈', e);
+  },
+  onTabItemTap (e) {
+    console.log(e, '点击tab');
   }
 })

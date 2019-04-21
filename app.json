@@ -6,7 +6,8 @@
     "pages/mine/userInfo/userInfo",
     "pages/mark/productdetail/productdetail",
     "components/dialog/dialog",
-    "components/maps/maps"
+    "components/maps/maps",
+    "pages/noPage/noPage"
   ],
   "tabBar": {
     "position": "bottom",
@@ -39,15 +40,16 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "嘉实财富",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "requiredBackgroundModes": ["audio"]
   },
   "sitemapLocation": "sitemap.json",
   "permission": {
     "scope.userLocation": {
-      "desc": "小程序将访问您的地址"
+      "desc": "允许程序访问您的地址？"
     },
     "scope.address": {
-      "desc": "小程序将访问您的通讯地址"
+      "desc": "允许程序访问您的通讯地址？"
     }
   }
 }
