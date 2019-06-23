@@ -7,29 +7,14 @@ Component({
    * 用于组件自定义设置
    */
   properties: {
-    // 弹窗标题
-    title: { // 属性名
-      type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-      value: '标题' // 属性初始值（可选），如果未指定则会根据类型选择一个
+    title:{
+      type: String
     },
-    // 弹窗内容
-    content: {
-      type: String,
-      value: '弹窗内容'
+    value: {
+      type:String
     },
-    // 弹窗取消按钮文字
-    cancelText: {
-      type: String,
-      value: '取消'
-    },
-    // 弹窗确认按钮文字
-    confirmText: {
-      type: String,
-      value: '确定'
-    },
-    visible: {
-      type: Boolean,
-      value: false
+    defaultValue: {
+      type: String
     }
   },
 
@@ -45,16 +30,19 @@ Component({
    * 组件的方法列表
    * 更新属性和数据的方法与更新页面数据的方法类似
    */
+  ready () {
+    console.log('页面挂载参数', this);
+  },
+  pageLifetimes: {
+    show () {
+    }
+  },
   methods: {
-    /*
-     * 公有方法
-     */
-
-    //显示、隐藏弹框
-    toggleDialog() {
-      this.setData({
-        isShow: !this.data.isShow
-      })
+    onLoad () {
+    },
+    onTap (e) {
+      console.log(e,'点击事件');
+      this.triggerEvent('onTap');
     },
     /*
      * 内部私有方法建议以下划线开头
@@ -65,13 +53,11 @@ Component({
       /**
        * 相当于父级props的回调:this.triggerEvent相当于this.props。可以在父级的回调中做一些操作。
        */
-      console.log('点击取消');
       this.triggerEvent("cancelEvent")
       // this.hideDialog();
     },
     _confirmEvent() {
       //触发成功回调
-      console.log('点击确定');
       this.triggerEvent("confirmEvent");
       // this.hideDialog();
     }

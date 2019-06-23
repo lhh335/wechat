@@ -1,21 +1,53 @@
 <!--mine.wxml-->
 <view class="mine-container">
   <view class="mine-header" bindtap='handleTapHearder'>
-     <button wx:if="{{(!hasUserInfo && canIUse)}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <button wx:if="{{(!hasUserInfo && canIUse)}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       <image src="../../images/arrow_right_gray.png" class='arrow'></image>
     </block>
   </view>
-  <dialog
-    id="dialog_mine"
+  <block class="item-wrap">
+  </block>
+  <dialog 
+    visible="{{visible}}"
     title="提示信息"
-    content="确定要跳转页面来查看个人信息？"
-    cancelText="取消"
+    content="确定要跳转页面来查看个人信息？" 
+    cancelText="取消" 
     confirmText="确定"
-    bind:cancelEvent="_cancleEvent"
     bind:confirmEvent="_confirmEvent"
-  >
-  </dialog>
+    bind:cancelEvent="_cancelEvent"
+  />
+  <view class="gap-gray" />
+  <itemBar 
+    title="风险承受能力"
+    avatar="../../images/mark/icon_6.png"
+    value=""
+    defaultValue="请选择"
+    defaultColor="#f00"
+    bind:onTap="_bindTapRisk"
+  />
+  <itemBar 
+    title="我的银行卡"
+    value="3张"
+    defaultValue="请选择"
+    defaultColor="#f00"
+    bind:onTap="_bindTapBank"
+  />
+  <itemBar 
+    title="投资者声明"
+    value=""
+    defaultValue="请选择"
+    defaultColor="#f00"
+    bind:onTap="_bindTapInvest"
+  />
+  <view class="gap-gray"/>
+  <itemBar 
+    title="设置"
+    value=""
+    defaultValue="请选择"
+    defaultColor="#f00"
+    bind:onTap="_bindTapBank"
+  />
 </view>

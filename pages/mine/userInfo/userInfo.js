@@ -51,6 +51,24 @@ Page({
       })
     }
   },
+
+  onReady () {
+    this.videoCtx = wx.createVideoContext('myVideo');
+    this.videoCtx.play()
+  },
+  /**
+   * 播放视频
+   */
+  play() {
+    this.videoCtx.play()
+  },
+  /**
+   * 暂停视频
+   */
+  pause() {
+    this.videoCtx.pause()
+  },
+
   getUserInfo: function (e) {
     console.log(e, 'getUsetInfo');
     app.globalData.userInfo = e.detail.userInfo

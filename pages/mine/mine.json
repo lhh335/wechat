@@ -3,6 +3,7 @@
   "navigationBarBackgroundColor": "#197FC3",
   "navigationBarTextStyle": "white",
   "usingComponents": {
-    "dialog": "/components/dialog/dialog"
+    "dialog": "/components/dialog/dialog",
+    "itemBar": "/components/itemBar/itemBar"
   }
 }

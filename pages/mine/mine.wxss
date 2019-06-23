@@ -31,3 +31,14 @@
   height: 16px;
 }
 
+.gap-gray {
+  width: 100%;
+  height: 10px;
+  background: #f7f7f7;
+}
+
+.item-wrap {
+  width: 100%;
+  height: auto;
+  background: #fff;
+}

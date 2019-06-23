@@ -1,0 +1,4 @@
+<!--components/bankPanel/bankPanel.wxml-->
+<view class="bank-panel" style="background: {{bankColor}} " bindtap='_onTap'>
+  <text>{{bankName + bankNO}}</text>
+</view>

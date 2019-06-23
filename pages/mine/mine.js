@@ -12,10 +12,27 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    visible: false
   },
-  onReady: function() {
-    this.dialog_mine = this.selectComponent('#dialog_mine')
+
+  // 点击个人信息条目
+  _bindTapRisk(){
+    wx.navigateTo({
+      url: './userInfo/userInfo',
+    })
+  },
+
+  // 点击投资者声明
+  _bindTapInvest() {
+
+  },
+
+  // 点击我的银行卡
+  _bindTapBank() {
+    wx.navigateTo({
+      url: './bankList/bankList',
+    })
   },
 
   //事件处理函数
@@ -24,19 +41,24 @@ Page({
       url: '/pages/wealth/wealth',
     })
   },
-  handleTapHearder() {
-    this.dialog_mine.toggleDialog();
+  toggleDialog() {
+    this.setData({
+      visible: !this.data.visible
+    })
   },
-  _cancleEvent() {
-    console.log('取消');
-    this.dialog_mine.toggleDialog();
-  },
+
   _confirmEvent() {
-    console.log('确定');
-    this.dialog_mine.toggleDialog();
+    this.toggleDialog();
     wx.navigateTo({
       url: './userInfo/userInfo',
     })
+  },
+
+  _cancelEvent () {
+    this.toggleDialog();
+  },
+  handleTapHearder() {
+    this.toggleDialog();
   },
 
   onLoad: function() {

@@ -1,0 +1,9 @@
+/* components/bankPanel/bankPanel.wxss */
+
+.bank-panel {
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+  background: gray;
+  margin-bottom: 10px;
+}

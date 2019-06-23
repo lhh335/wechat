@@ -1,0 +1,15 @@
+<!--pages/mine/bankList/bankList.wxml-->
+<view class="bank-page" style="min-height: {{page_minHeight + 'px'}}">
+  <view wx:for="{{bankList}}">
+    <bankPanel bankName="{{item.bankName}}" bankNO="{{item.bankNO}}" bankColor="{{item.bankColor}}" bindtap='_onTap'/>
+  </view>
+  <dialog 
+    title="修改银行卡信息"
+    visible="{{isShowDialog}}"
+    content="确定要修改银行信息吗？"
+    cancelText="取消"
+    confirmText="修改"
+    bind:cancelEvent="_cancelEvent"
+    bind:confirmEvent="_confirmEvent"
+  />
+</view>

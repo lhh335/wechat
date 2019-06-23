@@ -1,0 +1,9 @@
+<!--components/itemBar/itemBar.wxml-->
+<view class="flex-wrap" bindtap='onTap'>
+  <view class="item">
+    <image src="../../images/mark/icon_6.png" class="avatar"></image>
+    <text class="title-item">{{title}}</text>
+    <text class="{{value ? 'value-item' : 'defaultValue-item'}}">{{value ? value : defaultValue}}</text>
+  </view>
+  <image src="../../images/arrow_right_gray.png" class='arrow'></image>
+</view>

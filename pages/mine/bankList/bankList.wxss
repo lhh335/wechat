@@ -1,0 +1,7 @@
+/* pages/mine/bankList/bankList.wxss */
+.bank-page {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 20px 14px;
+  box-sizing: border-box;
+}

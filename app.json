@@ -4,8 +4,11 @@
     "pages/wealth/wealth",
     "pages/mine/mine",
     "pages/mine/userInfo/userInfo",
+    "pages/mine/bankList/bankList",
     "pages/mark/productdetail/productdetail",
     "components/dialog/dialog",
+    "components/itemBar/itemBar",
+    "components/bankPanel/bankPanel",
     "components/maps/maps",
     "pages/noPage/noPage"
   ],
