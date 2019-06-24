@@ -8,27 +8,32 @@ Page({
     bankList: [
       {
         bankName: '中国银行',
-        bankNO: '937927392',
-        bankColor: '#ff6666'
+        bankNO: '9379 **** **** 2739',
+        bankColor: '#ff6666',
+        bankIcon: "/images/banklist/002.png"
       },
       {
         bankName: '中国工商银行',
-        bankNO: '34717631',
-        bankColor: '#3399ff'
+        bankNO: '3471 **** **** 7631',
+        bankColor: '#3399ff',
+        bankIcon: '/images/banklist/005.png'
       },
       {
         bankName: '中国农业银行',
-        bankNO: '0992791121',
-        bankColor: '#33cc99'
+        bankNO: '0992 **** **** 7911',
+        bankColor: '#33cc99',
+        bankIcon: '/images/banklist/002.png'
       },
       {
         bankName: '招商银行',
-        bankNO: '937927392',
-        bankColor: '#ff6666'
+        bankNO: '9379 **** **** 2392',
+        bankColor: '#ff6666',
+        bankIcon: '/images/banklist/007.png'
       },
     ],
     page_minHeight: wx.getSystemInfoSync().windowHeight,
-    isShowDialog: false
+    isShowDialog: false,
+    deviceWidth: wx.getSystemInfoSync().windowWidth
   },
 
   /**
@@ -58,6 +63,7 @@ Page({
 
   _confirmEvent () {
     this._changeDialogVisible();
+    
   },
 
   _onTap () {

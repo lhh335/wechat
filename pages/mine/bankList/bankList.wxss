@@ -5,3 +5,12 @@
   padding: 20px 14px;
   box-sizing: border-box;
 }
+
+.add-bank {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: rgba(255,255,255,1);
+  background: rgba(184, 182, 182, 0.5);
+  font-size: 14px;
+}

@@ -12,6 +12,9 @@ Component({
     },
     bankColor: {
       type: String
+    },
+    bankIcon: {
+      type: String
     }
   },
 

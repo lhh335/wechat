@@ -6,4 +6,34 @@
   border-radius: 5px;
   background: gray;
   margin-bottom: 10px;
+  padding: 20px 18px;
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bank-name {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.bank-no {
+  font-size: 18px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.bank-icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+}
+.bank-short-name {
+  flex: 1;
+  height: auto;
 }
