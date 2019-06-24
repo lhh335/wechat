@@ -64,6 +64,31 @@ Page({
   _confirmEvent () {
     this._changeDialogVisible();
     
+    wx.showModal({
+      title: '提示',
+      content: '这是一个模态弹窗',
+      success (res) {
+        if (res.confirm) {
+          wx.switchTab({
+            url: '/pages/wealth/wealth',
+            success: function (e) {
+              console.log('跳转成功====获取路由栈', getCurrentPages());
+            }
+          })
+        } else if (res.cancel) {
+          wx.showActionSheet({
+            itemList:['button1', 'button2', 'button3'],
+            itemColor: '#6666ff',
+            success(res) {
+              console.log(res, 'onshowActionSheet');
+            },
+            fail() {
+
+            }
+          })
+        }
+      } 
+    })
   },
 
   _onTap () {
