@@ -21,7 +21,7 @@ Page({
         hasUserInfo: true
       })
       wx.request({
-        url: 'https://app.harvestwm.cn/api/v1/app/productdetail?fundCode=003678',
+        url: '/productdetail?fundCode=003678',
         header: {
           "Content-Type": "application/json"
         },

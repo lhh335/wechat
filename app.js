@@ -1,12 +1,40 @@
 //app.js
+import { APP_INIT } from "./service/apiName.js";
+import { fetchData } from "./service/service.js";
 App({
   onLaunch: function () {
     // 展示本地存储能力
+    wx.hideTabBar({
+    })
     var logs = wx.getStorageSync('logs') || []
     console.log('onLaunch');
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    // 初始化项目
+    fetchData({
+      url: APP_INIT,
+      success: (res) => {
+        console.log('app初始化成功', res);
+        if (res.status.code === 10000) {
+          if (res.data.token) {
+            this.globalData.login = true;
+            this.globalData.token = res.data.token;
+          } else {
+            this.globalData.login = false;
+            this.globalData.token = '';
+            // wx.switchTab({
+            //   url: '/pages/mine/mine',
+            // })
+          }
+        } else {
+          this.globalData.login = false;
+        }
+      },
+      fail: (err) => {
+        console.log('app初始化失败', err);
+        this.globalData.login = false;
+      }
+    })
     // 登录
     wx.login({
       success: res => {
@@ -50,6 +78,8 @@ App({
     console.log('onShow', e);
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    login: false,
+    token: ''
   }
 })

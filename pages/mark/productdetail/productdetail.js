@@ -8,7 +8,7 @@ Page({
   },
   onLoad: () => {
     fetchData({
-      url: 'https://app.harvestwm.cn/api/v1/app/bannerlist?position=accessOrderGroup',
+      url: '/bannerlist?position=accessOrderGroup',
       success: (res) => {
         console.log(res, '调用接口234');
       },

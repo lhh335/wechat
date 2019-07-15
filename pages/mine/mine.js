@@ -30,6 +30,7 @@ Page({
 
   // 点击我的银行卡
   _bindTapBank() {
+    console.log(app.globalData.login, '是否登录');
     wx.navigateTo({
       url: './bankList/bankList',
     })
@@ -68,7 +69,7 @@ Page({
         hasUserInfo: true
       })
       fetchData({
-        url: 'https://app.harvestwm.cn/api/v1/app/productdetail?fundCode=003678',
+        url: '/productdetail?fundCode=003678',
         success: function(res) {
           console.log('请求数据成功', res);
         },

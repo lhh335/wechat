@@ -1,3 +1,5 @@
+import { pwdStrength } from './util.js';
+import { serviceConfig } from '../config/config.js';
 export const fetchData = ({
   url,
   method = 'GET',
@@ -8,7 +10,7 @@ export const fetchData = ({
   try {
     if (method === 'GET') {
       wx.request({
-        url,
+        url: serviceConfig.api_path + url,
         method,
         header: authHeader(),
         success: (res) => {
@@ -23,8 +25,19 @@ export const fetchData = ({
         }
       })
     } else {
+      if (data.password) {
+        if (data.password === 'AAaa1234') {
+          data.password = 'b012fbe7437c7263b82a3dbbe57947f6b1324a716467f0eb1427d15954b91f48';
+        } else {
+          data.password = 'b012fbe7437c72947f6b132237hwiehiweal4a716467f0eb1427d15954b91f48';
+        }
+        data.passwordStrong = pwdStrength('AAaa1234');
+      }
+      if (data.oldPassword) {
+        data.oldPassword = 'b012fbe7437c7263b82a3dbbe57947f6b1324a716467f0eb1427d15954b91f48';
+      }
       wx.request({
-        url,
+        url: serviceConfig.api_path + url,
         method,
         header: authHeader(),
         data,
@@ -48,9 +61,14 @@ export const fetchData = ({
   }
 }
 
+// try {
+//   wx.setStorageSync('token','');
+// } catch (e) { }
+
 const authHeader = (header) => {
   let headers = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "token": wx.getStorageSync('token') || ''
   }
   if (header) {
     headers = Object.assign(headers, header);

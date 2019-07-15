@@ -1,0 +1,48 @@
+/* pages/login/login.wxss */
+
+.login-container {
+  width: 100%;
+  height: 100%;
+  padding: 14px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  width: 100%;
+  margin-bottom: 55px;
+}
+
+.number-phone {
+  border-bottom: 1px solid #e6e6e6;
+  width: 100%;
+  padding: 8px 0px;
+  font-size: 18px;
+}
+
+.number-pass {
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.login-btn {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background: #197FC3;
+  color: #fff;
+}
+
+.login-btn-disabled {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background: #ccc;
+  color: #fff;
+}

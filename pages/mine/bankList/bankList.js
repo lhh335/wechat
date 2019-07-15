@@ -1,4 +1,6 @@
 // pages/mine/bankList/bankList.js
+import { fetchData } from '../../../service/service.js';
+
 Page({
 
   /**
@@ -40,7 +42,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    fetchData({
+      url: '/bankcardList',
+      success: ({ status, data }) => {
+        
+      },
+      fail: (err) => {
 
+      }
+    })
   },
 
   /**
