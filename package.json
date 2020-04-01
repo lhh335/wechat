@@ -1,0 +1,22 @@
+{
+  "name": "wechat",
+  "version": "1.0.0",
+  "description": "这是一个微信小程序",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lhh335/wechat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lhh335/wechat/issues"
+  },
+  "homepage": "https://github.com/lhh335/wechat#readme",
+  "dependencies": {
+    "crypto-js": "^4.0.0"
+  }
+}

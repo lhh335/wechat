@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/mark/mark",
     "pages/wealth/wealth",
     "pages/mine/mine",
@@ -11,7 +10,8 @@
     "components/itemBar/itemBar",
     "components/bankPanel/bankPanel",
     "components/maps/maps",
-    "pages/noPage/noPage"
+    "pages/noPage/noPage",
+    "pages/login/login"
   ],
   "tabBar": {
     "position": "bottom",
@@ -21,11 +21,11 @@
     "color": "#808080",
     "list": [
       {
-      "pagePath": "pages/mark/mark",
-      "text": "市场",
-      "iconPath": "/images/mark_default.png",
-      "selectedIconPath": "/images/mark_select.png"
-      }, 
+        "pagePath": "pages/mark/mark",
+        "text": "市场",
+        "iconPath": "/images/mark_default.png",
+        "selectedIconPath": "/images/mark_select.png"
+      },
       {
         "pagePath": "pages/wealth/wealth",
         "text": "财富",
@@ -45,7 +45,9 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "嘉实财富",
     "navigationBarTextStyle": "black",
-    "requiredBackgroundModes": ["audio"]
+    "requiredBackgroundModes": [
+      "audio"
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "permission": {

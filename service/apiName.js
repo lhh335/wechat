@@ -1,2 +1,2 @@
-  export const APP_INIT = '/init';
-  export const LOGIN = '/login';
+  export const APP_INIT = '/v1/init';
+  export const LOGIN = '/v1/login';

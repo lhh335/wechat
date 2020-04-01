@@ -1,7 +1,7 @@
 <!--pages/login/login.wxml-->
 <view class="login-container">
   <text class="login-title">账号密码登录</text>
-  <input placeholder="请输入手机号" type="number" class="number-phone" bindinput="_numberChange"/>
+  <input placeholder="请输入用户名" type="text" class="number-phone" bindinput="_numberChange"/>
   <input placeholder="请输入密码" password="{{showPwd}}" class="number-phone number-pass" bindinput="_pwdChange"/>
   <button class="{{login_btn_disabled? 'login-btn-disabled' : 'login-btn'}}" loading="{{loading}}" disabled="{{login_btn_disabled}}" bindtap="_login">登录</button>
 </view>

@@ -1,7 +1,7 @@
 // pages/login/login.js
 import {
   REG_PASS,
-  REG_PHONE
+  REG_USER
 } from "../../utils/util.js";
 import {
   fetchData
@@ -19,13 +19,13 @@ Page({
     showPwdIcon: '',
     unShowPwdIcon: '',
     login_btn_disabled: true,
-    phone: '',
-    pwd: '',
+    username: '',
+    password: '',
     loading: false
   },
 
-  authBtn(phone, pwd) {
-    if (REG_PASS.test(pwd) && REG_PHONE.test(phone)) {
+  authBtn(username, password) {
+    if (REG_PASS.test(password) && !REG_USER.test(username)) {
       this.setData({
         login_btn_disabled: false
       })
@@ -38,34 +38,35 @@ Page({
 
   _numberChange(e) {
     const {
-      pwd
+      password
     } = this.data;
     const value = e.detail.value;
     this.setData({
-      phone: value
+      username: value
     })
-    this.authBtn(value, pwd);
+    this.authBtn(value, password);
   },
 
   _pwdChange(e) {
     const {
-      phone
+      username
     } = this.data;
     const value = e.detail.value;
     this.setData({
-      pwd: value
+      password: value
     })
-    this.authBtn(phone, value);
+    this.authBtn(username, value);
   },
 
   _login() {
     const params = {
-      loginId: this.data.phone,
-      password: this.data.pwd
+      username: this.data.username,
+      password: this.data.password
     }
     this.setData({
       loading: true
     })
+    // 登录接口
     fetchData({
       url: LOGIN,
       method: 'POST',
@@ -83,7 +84,7 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          const timer = setTimeout(() => {
+          let timer = setTimeout(() => {
             wx.showTabBar({})
             wx.switchTab({
               url: '/pages/wealth/wealth',

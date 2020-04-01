@@ -1,15 +1,16 @@
 //app.js
 import { APP_INIT } from "./service/apiName.js";
 import { fetchData } from "./service/service.js";
+
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
-    wx.hideTabBar({
-    })
     var logs = wx.getStorageSync('logs') || []
-    console.log('onLaunch');
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+
     // 初始化项目
     fetchData({
       url: APP_INIT,
@@ -18,20 +19,29 @@ App({
         if (res.status.code === 10000) {
           if (res.data.token) {
             this.globalData.login = true;
-            this.globalData.token = res.data.token;
+            wx.setStorageSync('token', res.data.token)
           } else {
             this.globalData.login = false;
-            this.globalData.token = '';
-            // wx.switchTab({
-            //   url: '/pages/mine/mine',
-            // })
+            wx.removeStorageSync('token');
           }
+          let timer = setTimeout(() => {
+            console.log('进入到这');
+            wx.showTabBar({})
+            wx.switchTab({
+              url: '/pages/wealth/wealth',
+            })
+            timer = null;
+          }, 100)
         } else {
+          if (res.status.coe === 401) {
+            wx.redirectTo({
+              url: '/pages/login/login',
+            })
+          }
           this.globalData.login = false;
         }
       },
       fail: (err) => {
-        console.log('app初始化失败', err);
         this.globalData.login = false;
       }
     })
@@ -78,8 +88,7 @@ App({
     console.log('onShow', e);
   },
   globalData: {
-    userInfo: null,
-    login: false,
-    token: ''
+    userInfo: null, // 用户信息
+    login: false, // 是否登录
   }
 })

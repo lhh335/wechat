@@ -16,3 +16,4 @@ const formatNumber = n => {
 
 export const REG_PHONE = /^1[0123456789]\d{9}$/; // 手机号正则校验
 export const REG_PASS = /^[a-zA-Z0-9_!$.]{6,18}$/; // 密码正则校验
+export const REG_USER = /[\u4e00-\u9fa5]+/; // 包含中文

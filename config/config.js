@@ -1,3 +1,3 @@
 export const  serviceConfig = {
-  api_path: 'https://app.harvestwm.cn/api/v1/app'
+  api_path: 'https://www.lhh-zzr.com:8009'
 }
